@@ -18,6 +18,19 @@ def index(request):
 @api_view(['GET'])
 def word_list(request):
     print("Words: ")
-    return Response({"message": "default response"})
+    return Response({"message": [word.text for word in Word.objects.all()]})
+
+@api_view(['POST'])
+def search(request):
+	if (request.method == 'POST'):
+		word = request.data['word'].strip()
+		paragraphs = []
+		try:
+			wordObj = Word.objects.get(text=word)
+			paragraphs = wordObj.paragraphs.all()[:10]
+		except:
+			pass
+		return Response({"paragraphs": [paragraph.text for paragraph in paragraphs]})
+	return Response({"message": "default response"})
 
 
