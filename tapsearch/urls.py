@@ -21,9 +21,9 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/index', index),
-    path('api/words', word_list),
-    path('api/search', search),
+    path('api/index/', index),
+    path('api/words/', word_list),
+    path('api/search/', search),
     path('api/', include('rest_framework.urls')),
 ]
 
