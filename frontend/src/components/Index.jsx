@@ -58,7 +58,6 @@ class Index extends Component {
             <Button variant="primary" size="lg" onClick = {this.hitAPI} disabled={this.state.text === '' || this.state.working} style={{ marginTop: 20, width: '100%'}}>Index</Button>
           }
         </center>
-        <Button variant="outline-primary" size="lg" onClick = {() => this.props.history.push('/')} style={{ position: 'absolute', height: 60, width: 60, top: 10, left: 10, borderRadius: 50}}>&lt;</Button>
         <Toast style={{ position: 'absolute', top: 30, left: 0, right: 0, margin: 'auto'}} onClose={() => this.setState({done: false})} show={this.state.done} delay={3000} autohide>
           <Toast.Header>
             <strong className="mr-auto">Done!</strong>

@@ -78,6 +78,11 @@ class Search extends Component {
               <div>
                 <b>Results</b><br/><br/>
                 <ListGroup>
+                  { this.state.data.length === 0 &&
+                    <div>
+                      <h4> Nothing Found </h4>
+                    </div>
+                  }
                   {
                     this.state.data.map(
                       (paragraph, index) => (
@@ -89,11 +94,6 @@ class Search extends Component {
                     )
                   }
                 </ListGroup>
-              </div>
-            }
-            { this.state.data.length === 0 &&
-              <div>
-                <h4> Nothing Found </h4>
               </div>
             }
           </div>
