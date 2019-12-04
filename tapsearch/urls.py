@@ -18,6 +18,7 @@ from django.urls import path, include
 from api.views import index, clear, search
 from django.conf.urls import url
 from django.conf import settings
+from .views import index as indexPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +26,7 @@ urlpatterns = [
     path('api/clear/', clear),
     path('api/search/', search),
     path('api/', include('rest_framework.urls')),
+    path("", indexPage)
 ]
 
 if settings.DEBUG:
