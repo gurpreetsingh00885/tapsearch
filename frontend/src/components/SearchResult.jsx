@@ -25,7 +25,7 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    axios.post('http://localhost:8000/api/search/', {
+    axios.post('/api/search/', {
         word: this.state.text
       })
       .then((response) => {

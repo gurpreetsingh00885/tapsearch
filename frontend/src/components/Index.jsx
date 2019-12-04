@@ -18,7 +18,7 @@ class Index extends Component {
 
   hitAPI = () => {
     this.setState({ working: true });
-    axios.post('http://localhost:8000/api/index/', {
+    axios.post('/api/index/', {
         text: this.state.text
       })
       .then((response) => {

@@ -14,7 +14,7 @@ class Home extends Component {
 
   clear = () => {
     this.setState({ clearing: true }, () => {
-      axios.post('http://localhost:8000/api/clear/')
+      axios.post('/api/clear/')
       .then((response) => {
         this.setState({clearing: false, done: true, showModal: false})
         console.log(response);
