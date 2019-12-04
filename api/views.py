@@ -27,7 +27,7 @@ def clear(request):
 @api_view(['POST'])
 def search(request):
 	if (request.method == 'POST'):
-		word = request.data['word'].strip()
+		word = request.data['word'].strip().lower()
 		paragraphs = []
 		try:
 			wordObj = Word.objects.get(text=word)
