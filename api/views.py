@@ -2,7 +2,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from api.helpers import preprocess, process
-from api.models import Word
+from api.models import Word, Paragraph
+from django.db import transaction
 
 @api_view(['POST'])
 def index(request):
@@ -15,10 +16,13 @@ def index(request):
     
     return Response({"message": "default response"})
 
-@api_view(['GET'])
-def word_list(request):
-    print("Words: ")
-    return Response({"message": [word.text for word in Word.objects.all()]})
+@api_view(['POST'])
+@transaction.atomic
+def clear(request):
+    if (request.method == 'POST'):
+    	Word.objects.all().delete()
+    	Paragraph.objects.all().delete()
+    return Response({"message": "unsuccessful"})
 
 @api_view(['POST'])
 def search(request):
