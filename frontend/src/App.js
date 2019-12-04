@@ -14,7 +14,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/index" component={Index} />
-          <Route exact path="/search/:word" component={SearchResult} />
+          <Route exact path="/search/:word" render={(props) => (
+  <SearchResult key={props.match.params.word} {...props} />)} />
           <Route exact path="/search" component={Search} />
           <Route exact component={NotFound} />
       </Switch>
